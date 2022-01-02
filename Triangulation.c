@@ -7,23 +7,23 @@
 //
 // Pour une matrice 1000x1000
 //
-// real    0m1,242s
-// user    0m1,223s
-// sys     0m0,016s
+// real	0m4,157s
+// user	0m4,148s
+// sys	0m0,004s
 
-// time ./Triangularisation > /dev/null
+// Pour une matrice 2000x2000
 //
-// Pour une matrice 10000x10000
-//
-// real    37m8,434s
-// user    37m6,552s
-// sys     0m0,292s
+// real	0m31,947s
+// user	0m31,893s
+// sys	0m0,020s
+
+
 
 void matrice_triangle(long double matrice[],int size);
 
 int main(){
 
-    int taille_matrice = 4;
+    int taille_matrice = 2000;
     int taille_tab = taille_matrice*taille_matrice;
     long double * tab = malloc(sizeof(long double) * taille_tab);
     
@@ -31,18 +31,25 @@ int main(){
 
     long double it = 0;
     for(int i = 0;i<taille_tab;i++){
-        //tab[i] = rand() % 10;
-        tab[i] = (long double)(((int)it)%20+1);
-                    it+=2.3;
+        tab[i] = rand() % 10;
     }
-    
+    /*
     for(int i = 0;i<taille_tab;i++){
         printf("%.0Lf ",tab[i]);
         if(i%taille_matrice == taille_matrice-1){printf("\n");}
     }
-    
+    */
+
+    clock_t start, finish;
+    start = clock();
+    double duration;
+
     matrice_triangle(tab,taille_matrice);
     printf("\n");
+
+    finish = clock();
+    duration = (double)(finish - start) / CLOCKS_PER_SEC;
+    printf( "%f seconds\n", duration );
 
     return 0;
 }
@@ -84,12 +91,12 @@ void matrice_triangle(long double matrice[],int size){
         }
     }
     
-    for(int i = 0;i<size*size;i++){
-        printf("%.0Lf ",matrice[i]);
-        if(i%size == size-1){
-            printf("\n");
-        }
+    /*
+    for(int i = 0;i<taille_tab;i++){
+        printf("%.0Lf ",tab[i]);
+        if(i%taille_matrice == taille_matrice-1){printf("\n");}
     }
+    */
     
     long double res = 1;
     printf("\n\n\n\n\n");
