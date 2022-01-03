@@ -5,7 +5,7 @@
 
 long double Determinant_Bareiss(long double tab[],int taille_matrice);
 int main(){
-    int taille_matrice = 100;
+    int taille_matrice = 1000;
     int taille_tab = taille_matrice*taille_matrice;
     long double * tab = malloc(sizeof(long double) * taille_tab);
     
