@@ -3,22 +3,6 @@
 #include <time.h>
 #include <math.h>
 
-// time ./Triangularisation > /dev/null
-//
-// Pour une matrice 1000x1000
-//
-// real	0m4,157s
-// user	0m4,148s
-// sys	0m0,004s
-
-// Pour une matrice 2000x2000
-//
-// real	0m31,947s
-// user	0m31,893s
-// sys	0m0,020s
-
-
-
 void matrice_triangle(long double matrice[],int size);
 
 int main(){
